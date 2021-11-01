@@ -478,30 +478,68 @@ console.log(objects)
 // },
 
 
-// let byYear = {};
-// let obj = [...objects];
-// let slicedYear = (obj) => obj.date.slice(6,10);
-// let slicedMonth = (obj) => obj.date.slice(3,5);
-
+let byYear = {};
+let obj = [...objects];
+let slicedYear = (obj) => obj.date.slice(6,10);
+let slicedMonth = (obj) => obj.date.slice(3,5);
+//
 // for (let i of obj) {
 //   let year = slicedYear(i);
 //   byYear[year] = {};
+// //
+// //   for (let j of obj) {
+// //     if (slicedYear(j) === year) {
+// //       let month = slicedMonth(j);
+// //       byYear[year][month] = [];
+// //
+// //       for (let a of obj) {
+// //         if (slicedYear(a) === year && slicedMonth(a) === month) {
+// //           byYear[year][month].push(a)
+// //         }
+// //       }
+// //     }
+// //   }
+// // }
+// // console.log(byYear);
 
-//   for (let j of obj) {
-//     if (slicedYear(j) === year) {
-//       let month = slicedMonth(j);
-//       byYear[year][month] = [];
+let byYearMap = [...objects].map(i => {
+    let year = slicedYear(i);
+    let month = slicedMonth(i);
+    i[year] = {}
+}).map(j => {
+    console.log(j)
 
-//       for (let a of obj) {
-//         if (slicedYear(a) === year && slicedMonth(a) === month) {
-//           byYear[year][month].push(a)
+})
+
+//
+// const obj2 = [...objects].reduce((acc, curr) => {
+//     let year = slicedYear(curr);
+//     let month = slicedMonth(curr);
+//     if (acc[year]) {
+//         if (acc[year][month]) {
+//             return {
+//                 ...acc,
+//                 [year]:{...acc[year],
+//                 [month]:[...acc[year][month], curr]}
+//             }
+//         } else {
+//             return {
+//                 ...acc,
+//                 [year]:{...acc[year], [month]:[curr]}
+//             };
 //         }
-//       }
+//
+//     } else {
+//         return {
+//             ...acc,
+//             [year]:{[month]:[curr]}
+//         };
 //     }
-//   }
-// }
+//
+// }, {})
+//
+// console.log(obj2);
 
-// console.log(byYear)
 
 
 //DONE
@@ -559,6 +597,22 @@ console.log(objects)
 
 //console.log(relationData)
 
+const obj1 = [...objects].reduce((acc, curr) => {
+    if (curr.relation) {
+        let index = curr.relation.relationId;
+        let object = acc[index];
+        if (object) {
+            return {...acc, [index]: [...acc[index], curr]};
+        } else {
+            return {...acc, [index]: [curr]};
+        }
+    }
+        return acc;
+}, {})
+
+console.log(obj1);
+
+
 
 //DONE
 //7. Необходимо получить массив объектов чья дата приходится на 2020 год и
@@ -604,6 +658,7 @@ console.log(objects)
 // const propertyRelation = [...objects].every(i => i.relation);
 // console.log(propertyRelation)
 
+
 //DONE
 // 10. Необходимо получить понимание есть ли объекты с enabled: true
 
@@ -611,6 +666,9 @@ console.log(objects)
 //   return { ...acc, [enab.enabled]: (acc[enab.enabled] || 0) +1};
 // }, {})
 // console.log(enabledTrue);
+// const some = [...objects].some(i => i.enabled);
+// console.log(some)
+
 
 
 
