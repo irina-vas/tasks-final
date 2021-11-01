@@ -502,14 +502,7 @@ let slicedMonth = (obj) => obj.date.slice(3,5);
 // // }
 // // console.log(byYear);
 
-let byYearMap = [...objects].map(i => {
-    let year = slicedYear(i);
-    let month = slicedMonth(i);
-    i[year] = {}
-}).map(j => {
-    console.log(j)
 
-})
 
 //
 // const obj2 = [...objects].reduce((acc, curr) => {
@@ -597,20 +590,20 @@ let byYearMap = [...objects].map(i => {
 
 //console.log(relationData)
 
-const obj1 = [...objects].reduce((acc, curr) => {
-    if (curr.relation) {
-        let index = curr.relation.relationId;
-        let object = acc[index];
-        if (object) {
-            return {...acc, [index]: [...acc[index], curr]};
-        } else {
-            return {...acc, [index]: [curr]};
-        }
-    }
-        return acc;
-}, {})
-
-console.log(obj1);
+// const obj1 = [...objects].reduce((acc, curr) => {
+//     if (curr.relation) {
+//         let index = curr.relation.relationId;
+//         let object = acc[index];
+//         if (object) {
+//             return {...acc, [index]: [...acc[index], curr]};
+//         } else {
+//             return {...acc, [index]: [curr]};
+//         }
+//     }
+//         return acc;
+// }, {})
+//
+// console.log(obj1);
 
 
 
