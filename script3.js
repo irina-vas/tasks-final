@@ -540,12 +540,11 @@ console.log(objects)
 // for (let i of obj){
 //   if (i.relation){
 //     let index = i.relation.relationId - 1;
-//     console.log(index)
 //     i.relation.relationId = obj[index];
 //     objRelationId.push(i);
 //   }
 // }
-
+//
 // console.log(obj);
 
 
@@ -667,6 +666,15 @@ console.log(objects)
 // console.log(arr2020)
 
 
+// let arr2020 = objects.reduce((acc, curr) => {
+//     if (curr.date.slice(6,10) === '2020') {
+//         curr.enabled = true;
+//         acc.push(curr);
+//     }
+//         return acc;
+// }, [])
+// console.log(arr2020);
+
 //DONE
 // 8. Необходимо получить массив объектов. Объект должен иметь значение
 // enabled такое, что если у него нет relation, то значение false. Если relation есть,
@@ -677,18 +685,33 @@ console.log(objects)
 
 // let trueObj = obj.filter(i => i.relation);
 // let falseObj = obj.filter(i => !i.relation);
-
+//
 // for (let i = 0; i < trueObj.length; i++) {
 //   trueObj[i].enabled = trueObj[i].relation.relationId.enabled;
 // }
-
+//
 // for (let i = 0; i < falseObj.length; i++) {
 //   falseObj[i].enabled = false;
 // }
-
+//
 // const objChangedEnabled = [...trueObj, ...falseObj];
-
+//
 // console.log(objChangedEnabled);
+
+
+
+
+// const objChangedEnabled = objects.map(i => {
+//     if (i.relation) {
+//         let object = objects.find(j => j.id === i.relation.relationId);
+//             return {...i, enabled: object.enabled};
+//     }
+//         return {...i, enabled: false};
+//
+// })
+//
+// console.log(objChangedEnabled);
+
 
 //DONE
 // 9. Необходимо получить понимание того, что есть ли у всех объектов relation
