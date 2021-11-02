@@ -35,7 +35,7 @@
 
 // let age = +prompt('how old are you?');
 
-// if (20 > age < 27) {
+// if (age >= 20 && age < 27) {
 //   alert('выслать повестку');
 // }
 
@@ -207,11 +207,12 @@
 
 // let age = prompt('age?');
 // let name = prompt('name?');
-
+//
 // switch (age|name) {
-//   case 'John'|'29':
-//     console.log(`hi, ${name}, ${age}`)
-//     break;
-//   case 'Kate'|'15':
-//     console.log(`hi, ${name}, ${age}`)
+//     case 'John'|'29':
+//         console.log(`hi, ${name}, ${age}`)
+//         break;
+//     case 'Kate'|'15':
+//         console.log(`hi, ${name}, ${age}`)
+//         break
 // }
