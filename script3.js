@@ -438,7 +438,7 @@ console.log(objects)
 //DONE
 //1. Необходимо получить отсортированный массив объектов по дате.
 
-// const sortedDate = [...objects].sort((a,b) => {
+// const sortedDate = objects.sort((a,b) => {
 //   let dateA = a.date.split('-').reverse().join('')
 //   let dateB = b.date.split('-').reverse().join('');
 //   if (dateA < dateB) {
@@ -449,13 +449,13 @@ console.log(objects)
 //     return 0
 //   }
 // })
-
-//  console.log(sortedDate );
+//
+//  console.log(sortedDate);
 
 //DONE
 //2. Необходимо получить массив объектов которые имеют enabled: true
 
-// const enabledTrueObj = [...objects].filter(i => {
+// const enabledTrueObj = objects.filter(i => {
 //  return i.enabled === true;
 // })
 
@@ -478,34 +478,29 @@ console.log(objects)
 // },
 
 
-let byYear = {};
-let obj = [...objects];
-let slicedYear = (obj) => obj.date.slice(6,10);
-let slicedMonth = (obj) => obj.date.slice(3,5);
-//
+
 // for (let i of obj) {
 //   let year = slicedYear(i);
 //   byYear[year] = {};
-// //
-// //   for (let j of obj) {
-// //     if (slicedYear(j) === year) {
-// //       let month = slicedMonth(j);
-// //       byYear[year][month] = [];
-// //
-// //       for (let a of obj) {
-// //         if (slicedYear(a) === year && slicedMonth(a) === month) {
-// //           byYear[year][month].push(a)
-// //         }
-// //       }
-// //     }
-// //   }
-// // }
-// // console.log(byYear);
-
-
-
 //
-// const obj2 = [...objects].reduce((acc, curr) => {
+//   for (let j of obj) {
+//     if (slicedYear(j) === year) {
+//       let month = slicedMonth(j);
+//       byYear[year][month] = [];
+//
+//       for (let a of obj) {
+//         if (slicedYear(a) === year && slicedMonth(a) === month) {
+//           byYear[year][month].push(a)
+//         }
+//       }
+//     }
+//   }
+// }
+// console.log(byYear);
+
+
+
+// const obj2 = objects.reduce((acc, curr) => {
 //     let year = slicedYear(curr);
 //     let month = slicedMonth(curr);
 //     if (acc[year]) {
@@ -554,6 +549,46 @@ let slicedMonth = (obj) => obj.date.slice(3,5);
 // console.log(obj);
 
 
+// const objRelationId = objects.map(item => {
+//     if (item.relation) {
+//         let index = item.relation.relationId;
+//         let object = objects.find(({ id }) => id === index);
+//         return { ...item, relation : object }
+//     } else {
+//         return item;
+//     }
+// })
+//
+// console.log(objRelationId)
+
+// const obj2 = objects.reduce((acc, curr) => {
+//     let year = slicedYear(curr);
+//     let month = slicedMonth(curr);
+//     if (acc[year]) {
+//         if (acc[year][month]) {
+//             return {
+//                 ...acc,
+//                 [year]:{...acc[year],
+//                 [month]:[...acc[year][month], curr]}
+//             }
+//         } else {
+//             return {
+//                 ...acc,
+//                 [year]:{...acc[year], [month]:[curr]}
+//             };
+//         }
+//
+//     } else {
+//         return {
+//             ...acc,
+//             [year]:{[month]:[curr]}
+//         };
+//     }
+//
+// }, {})
+//
+// console.log(obj2);
+
 //DONE
 // 5. Необходимо получить массив объектов у которых есть relation.
 
@@ -574,23 +609,19 @@ let slicedMonth = (obj) => obj.date.slice(3,5);
 
 
 // let relationData = {};
-// let obj = [...objects];
-
-
-// for (let i of obj) {
-//   if (i.relation) {
-//     relationData[i.relation.relationId] = [];
-//     for (let j of obj) {
-//       if (j.relation && (j.relation.relationId === i.relation.relationId)) {
-//         relationData[i.relation.relationId].push(j);
-//       }
+//
+// for (let i of objects) {
+//     if (i.relation) {
+//         let index = i.relation.relationId;
+//         let object = relationData.index;
+//         relationData[index] = [i];
 //     }
-//   }
 // }
+//
+// console.log(relationData);
 
-//console.log(relationData)
 
-// const obj1 = [...objects].reduce((acc, curr) => {
+// const obj1 = objects.reduce((acc, curr) => {
 //     if (curr.relation) {
 //         let index = curr.relation.relationId;
 //         let object = acc[index];
@@ -611,14 +642,29 @@ let slicedMonth = (obj) => obj.date.slice(3,5);
 //7. Необходимо получить массив объектов чья дата приходится на 2020 год и
 // поменять ему ключ enabled на true. (должно быть несколько решений, через
 // циклы(for), map и другие перебирающие методы, reduce)
+//связка map и фильтра неправильная
 
 
-// let a = (arr) => arr.map(n => n.enabled === false ? {...n, enabled: !n.enabled} : n)
+// let arr2020 = objects.filter(i => {
+//     if (i.date.slice(6,10) === '2020') {
+//         return i;
+//     }
+// }).map(i => {
+//    i.enabled = true;
+//    return i;
+// })
+//
+// console.log(arr2020)
 
-// let arr2020Map = [...objects].map(i => i.date.slice(6,10) == '2020' ? i: null).filter(el => el ? el : null);
-// let arr2020Filter = [...objects].filter(i => i.date.slice(6, 10) == '2020' ? i : null);
-
-// console.log(a(arr2020Map))
+// let arr2020 = [];
+// for (let i = 0; i < objects.length; i++) {
+//     if (objects[i].date.slice(6,10) === '2020') {
+//         objects[i].enabled = true;
+//         arr2020.push(objects[i])
+//     }
+// }
+//
+// console.log(arr2020)
 
 
 //DONE
@@ -629,8 +675,8 @@ let slicedMonth = (obj) => obj.date.slice(3,5);
 
 //берем обьект из 4 задания - obj;
 
-// let trueObj = [...obj].filter(i => i.relation);
-// let falseObj = [...obj].filter(i => !i.relation);
+// let trueObj = obj.filter(i => i.relation);
+// let falseObj = obj.filter(i => !i.relation);
 
 // for (let i = 0; i < trueObj.length; i++) {
 //   trueObj[i].enabled = trueObj[i].relation.relationId.enabled;
@@ -655,7 +701,7 @@ let slicedMonth = (obj) => obj.date.slice(3,5);
 //DONE
 // 10. Необходимо получить понимание есть ли объекты с enabled: true
 
-// const enabledTrue = [...objects].reduce((acc, enab) => {
+// const enabledTrue = objects.reduce((acc, enab) => {
 //   return { ...acc, [enab.enabled]: (acc[enab.enabled] || 0) +1};
 // }, {})
 // console.log(enabledTrue);
