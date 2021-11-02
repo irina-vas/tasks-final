@@ -4,10 +4,16 @@
 // console.log( max(0, -1) ); // 0
 
 // function max(a,b) {
-//   return Math.max(a,b);
+//     if (a > b) {
+//         return a;
+//     } else if (b > a) {
+//         return b;
+//     } else {
+//         return '=';
+//     }
 // }
-
-// console.log(max(0,-1))
+//
+// console.log(max(0, -1))
 
 //done
 // 2. Напишите функцию-аналог Math.min(). Функция принимает любое количество
@@ -33,52 +39,52 @@
 // пользователей
 
 // let arr = [
-//   userA = {
+//   {
 //     firstName: 'vasya',
 //     lastName: 'rtrt',
 //     age: 1
 //   },
-//   userB = {
+//  {
 //     firstName: 'vasya',
 //     lastName: 'rtrt',
 //     age: 1
 //   },
-//   userC = {
+//   {
 //     firstName: 'vasya',
 //     lastName: 'rtrt',
 //     age: 10
 //   },
-//   userD = {
+//   {
 //     firstName: 'lena',
 //     lastName: 'rtyv',
 //     age: 100
 //   },
-//   userE = {
+//   {
 //     firstName: 'vitya',
 //     lastName: 'nmgg',
 //     age: 17
 //   },
-//   userF = {
+//   {
 //     firstName: 'kostya',
 //     lastName: 'rtyy',
 //     age: 18
 //   },
-//   userG = {
+//   {
 //     firstName: 'olya',
 //     lastName: 'yyt',
 //     age: 19
 //   },
-//   userH = {
+//   {
 //     firstName: 'galya',
 //     lastName: 'cgcg',
 //     age: 15
 //   },
-//   userI = {
+//   {
 //     firstName: 'vova',
 //     lastName: 'oco',
 //     age: 21
 //   },
-//   userJ = {
+//   {
 //     firstName: 'vanya',
 //     lastName: 'wpwp',
 //     age: 122
@@ -88,10 +94,16 @@
 // let grownUps = arr.filter(i => i.age > 18);
 // console.log(grownUps);
 // let pushfullName = arr.map(i => {
-//   i.fullName = i.firstName + ' ' + i.lastName;
-//   return i;
-//})
-//console.log(pushfullName);
+//     i.fullName = i.firstName + ' ' + i.lastName;
+//     return i;
+// })
+// console.log(pushfullName);
+//
+//
+//
+// let onlyFullName = pushfullName.map(i => i.fullName);
+// console.log(onlyFullName);
+
 
 // let onlyFullName = pushfullName.map(i => {
 //   delete i.firstName;
@@ -136,8 +148,15 @@
 // console.log(s); // {firstname: 'John', age: 10, lastname: 'Doe'}
 
 // function objAssign(...arguments) {
-//   let assignedObj = {...arguments }
-//   return assignedObj;
+//   let result = {};
+//   for (let i  = 0; i < arguments.length; i ++) {
+//     let obj = arguments[i],
+//       keys = Object.keys(obj);
+//     for (let j = 0; j < keys.length; j ++) {
+//       result[keys[j]] = obj[keys[j]];
+//     }
+//   }
+//   return result;
 // }
 
 // let source = {firstname: 'Tom', age: 10}
@@ -164,17 +183,15 @@
 
 
 // function setComment(date, message, author='Anonumus') {
-//   let date1 = date;
-//   let message1 = message;
-//   let author1 = author;
-//   if (date == null || message == null) {
-//     alert('wrong!')
-//   } else {
-//     console.log(`${author1}, ${date1} ${message1}`)
-//   }
+//     if (date == null || message == null) {
+//         alert('wrong!')
+//     } else {
+//         console.log(`${author1}, ${date1} ${message1}`)
+//     }
 // }
-
+//
 // setComment(12,'ggg', 'ira');
+
 
 //done
 // 1. Используя замыкание, напишите функцию createTimer, которая использует
