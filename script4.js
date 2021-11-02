@@ -441,7 +441,7 @@ console.log(objects)
 // содержать только те поля которые имеют permissions.view:
 // true
 
-// const permissionTrue = [...fields].filter(i => i.permissions.view);
+// const permissionTrue = fields.filter(i => i.permissions.view);
 // console.log(permissionTrue);
 
 
@@ -450,7 +450,7 @@ console.log(objects)
 // содержать только те поля которые имеют все ключи
 // пермиссий false
 
-// const permissionsAllFalse = [...fields].filter(i => {
+// const permissionsAllFalse = fields.filter(i => {
 //   return !i.permissions.edit && !i.permissions.remove && !i.permissions.view;
 // })
 
@@ -480,8 +480,20 @@ console.log(objects)
 // console.log(objReletedId);
 
 
+let objReletedId = fields.map(i => {
+    if(i.objectRelation) {
+        let object = objects.find(({ id }) => id === i.objectRelation.objectId)
+        return {...i, objectRelation: { objectId: object }}
+    } else {
+        return i;
+    }
+})
 
-//DONE
+console.log(objReletedId)
+
+
+
+//DONE+++++ANOTHER METHOD
 // 4. Необходимо сформировать массив полей с
 // проставленными пермиссиями в зависимости от того, что:
 // - если у поля нет objectRelation, то пермиссии поля
@@ -490,7 +502,7 @@ console.log(objects)
 // true, если объект objectRelation имеет enabled: true. Если
 // же enabled: false, то ставим все пермиссии false
 
-// const fieldsNullObjRelation = [...fields].filter(i => !i.objectRelation);
+// const fieldsNullObjRelation = fields.filter(i => !i.objectRelation);
 // const newArr = [...objReletedId];
 
 // for (let i = 0; i < newArr.length; i++) {
@@ -506,6 +518,27 @@ console.log(objects)
 
 
 
+// let newArr = fields.map(i => {
+//     if (i.objectRelation) {
+//         let object = objects.find(j => j.id === i.objectRelation.objectId);
+//         if (object.enabled) {
+//             return {...i, permissions: {
+//                 view: true, edit: true, remove: true
+//                 }}
+//         } else {
+//             return {...i, permissions: {
+//                     view: false, edit: false, remove: false
+//                 }}
+//         }
+//     } else {
+//         return {...i};
+//     }
+// })
+//
+// console.log(newArr);
+
+
+
 //DONE
 //5.Необходимо сформировать массив объектов только тех у
 // которых есть поля в objectRelation
@@ -513,7 +546,7 @@ console.log(objects)
 // const arrbOjectRelation = [...fields].filter(i => i.objectRelation ? i : null);
 // console.log(arrbOjectRelation);
 
-//DONE
+//DONE+++++ANOTHER METHOD
 // 6. Необходимо сформировать объект такого формата
 // {
 // [id объекта у которого есть поля]: [
@@ -552,32 +585,55 @@ console.log(objects)
 
 
 // const newArr = [...fields];
-
+//
 // for (let i = 0; i < newArr.length; i++) {
 //   if (newArr[i].permissions.view) {
 //     newArr[i].permissions.edit = true;
 //   }
 // }
+//
+// console.log(newArr);
+//
+
+// let editChange = newArr.map(i => {
+//     if (i.permissions.view) {
+//         return {...i, edit: true}
+//     } else {}
+//     return {...i, edit: false}
+// })
+//
+// console.log(editChange);
+
 
 
 //DONE
-// 8. Необходимо сформировать массив полей который будетсодержать только те поля у которых есть objectRelation и
+// 8. Необходимо сформировать массив полей который будет содержать только те поля у которых
+// есть objectRelation и
 // проставить всем этим полям дополнительный ключ relations:
 // true
 
 // const newArr = [...fields];
-// console.log(newArr)
+
 // for (let i = 0; i < newArr.length; i++) {
 //   if (newArr[i].objectRelation !== null){
 //     newArr[i].relation = true
 //   }
 // }
+// console.log(newArr)
+
+
+
+// const objRelation = fields.filter(i => i.objectRelation ? i : null).map(j => {
+//     return {...j, relation: true}
+// })
+//
+// console.log(objRelation)
 
 //DONE
 // 9. Необходимо получить массив полей отсортированных по
 // fieldName
 
-// const sortedByName = [...fields].sort((a,b) => {
+// const sortedByName = fields.sort((a,b) => {
 //   if (a.fieldName < b.fieldName) {
 //       return -1;
 //     } else if (a.fieldName > b.fieldName) {
@@ -594,8 +650,11 @@ console.log(objects)
 // нас хоть одно поле у которого все пермиссии true
 
 
-// const allTrue = [...fields].map(i => {
+// const allTrue = fields.map(i => {
 //   if (i.permissions.remove && i.permissions.view && i.permissions.edit) {
 //     return console.log('yes')
 //   }
 // })
+//const some = fields.some(i => i.permissions.remove && i.permissions.view && i.permissions.edit);
+
+//console.log(some)
