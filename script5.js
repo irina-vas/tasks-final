@@ -6,19 +6,27 @@ let startBtn = document.querySelector('.start');
 let stopBtn = document.querySelector('.stop');
 
 
-function addZero(item) {
-    if (item < 10) {
-        return '0' + item
-    }
-}
+// function addZero(item) {
+//     if (item < 10) {
+//         return '0' + item
+//     }
+// }
 
 
 function setTime() {
     let date = new Date();
     let hours = date.getHours();
-    hours < 10 ? '0' + hours
+    if (hours < 10) {
+        hours = '0' + hours
+    }
     let minuets = date.getMinutes();
+    if (minuets < 10) {
+        minuets = '0' + hours
+    }
     let seconds = date.getSeconds();
+    if (seconds < 10) {
+        seconds = '0' + hours
+    }
     hoursBlock.innerHTML = hours;
     minuetsBlock.innerHTML = minuets;
     secondsBlock.innerHTML = seconds;
@@ -36,4 +44,7 @@ function stop() {
 }
 
 let timerId;
+
+startBtn.addEventListener('click', start);
+st
 
