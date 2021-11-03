@@ -432,8 +432,8 @@ const fields = [
     }
 ];
 
-//console.log(fields);
-//console.log(objects)
+console.log(fields);
+console.log(objects)
 
 
 //DONE
@@ -480,14 +480,14 @@ const fields = [
 // console.log(objReletedId);
 
 
-let objReletedId = fields.map(i => {
-    if(i.objectRelation) {
-        let object = objects.find(({ id }) => id === i.objectRelation.objectId)
-        return {...i, objectRelation: { objectId: object }}
-    } else {
-        return i;
-    }
-})
+// let objReletedId = fields.map(i => {
+//     if(i.objectRelation) {
+//         let object = objects.find(({ id }) => id === i.objectRelation.objectId)
+//         return {...i, objectRelation: { objectId: object }}
+//     } else {
+//         return i;
+//     }
+// })
 
 //console.log(objReletedId)
 
@@ -560,21 +560,21 @@ let objReletedId = fields.map(i => {
 // …
 // }
 
-// let commonObj = [...objects, ...fields]
+let commonObj = [...objects, ...fields]
 
-// let object = {};
-// for (let i of commonObj) {
-//   if (i.objectRelation) {
-//     object[i.objectRelation.objectId] = [];
-//     for (let j of commonObj) {
-//       if (i.objectRelation.objectId === j.id) {
-//         object[i.objectRelation.objectId].push({[i.id] : i.permissions})
-//       }
-//     }
-//   }
-// }
+let object = {};
+for (let i of commonObj) {
+  if (i.objectRelation) {
+    object[i.objectRelation.objectId] = [];
+    for (let j of commonObj) {
+      if (i.objectRelation.objectId === j.id) {
+        object[i.objectRelation.objectId].push({[i.id] : i.permissions})
+      }
+    }
+  }
+}
 
-// console.log(object)
+console.log(object)
 
 
 // let obj2 = fields.filter(r => r.objectRelation ? r : null).map(i => {
@@ -585,14 +585,15 @@ let objReletedId = fields.map(i => {
 //     }
 // })
 
-
-// let obj2 = fields.reduce((acc, curr) => {
-//     if (curr.objectRelation) {
-//         let object1 = objects.find(j => j.id === curr.objectRelation.objectId);
-//         let index = curr.objectRelation.objectId;
-//         console.log(index)
+// let obj2 = fields.reduce((acc, i) => {
+//     if (i.objectRelation) {
+//         let index = i.objectRelation.objectId;
+//         console.log(index);
+//         let object1 = objects.find(j => j.id === i.objectRelation.objectId);
 //         if (object1) {
-//             return { index, curr.id : curr.permissions}
+//             return {
+//                 ...acc, [index] : [...acc[index], i.permissions]
+//             }
 //         }
 //     }
 // },{})
