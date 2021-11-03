@@ -1,0 +1,8 @@
+.root {
+    display: flex;
+    background-color: red;
+}
+
+.card {
+    background-color: red;
+}

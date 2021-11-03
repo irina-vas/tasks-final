@@ -46,5 +46,5 @@ function stop() {
 let timerId;
 
 startBtn.addEventListener('click', start);
-st
+stopBtn.addEventListener('click', stop());
 
