@@ -432,8 +432,8 @@ const fields = [
     }
 ];
 
-console.log(fields);
-console.log(objects)
+//console.log(fields);
+//console.log(objects)
 
 
 //DONE
@@ -489,7 +489,7 @@ let objReletedId = fields.map(i => {
     }
 })
 
-console.log(objReletedId)
+//console.log(objReletedId)
 
 
 
@@ -576,6 +576,28 @@ console.log(objReletedId)
 
 // console.log(object)
 
+
+// let obj2 = fields.filter(r => r.objectRelation ? r : null).map(i => {
+//     let object1 = objects.find(j => j.id === i.objectRelation.objectId);
+//     let index = i.objectRelation.objectId;
+//     if (object1) {
+//         return { index : {[i.id] : i.permissions} }
+//     }
+// })
+
+
+// let obj2 = fields.reduce((acc, curr) => {
+//     if (curr.objectRelation) {
+//         let object1 = objects.find(j => j.id === curr.objectRelation.objectId);
+//         let index = curr.objectRelation.objectId;
+//         console.log(index)
+//         if (object1) {
+//             return { index, curr.id : curr.permissions}
+//         }
+//     }
+// },{})
+//
+// console.log(obj2)
 
 
 //DONE
