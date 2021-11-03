@@ -560,22 +560,37 @@ console.log(objects)
 // …
 // }
 
-let commonObj = [...objects, ...fields]
-
-let object = {};
-for (let i of commonObj) {
-  if (i.objectRelation) {
-    object[i.objectRelation.objectId] = [];
-    for (let j of commonObj) {
-      if (i.objectRelation.objectId === j.id) {
-        object[i.objectRelation.objectId].push({[i.id] : i.permissions})
-      }
-    }
-  }
-}
-
-console.log(object)
-
+// let commonObj = [...objects, ...fields]
+//
+// let object = {};
+// for (let i of commonObj) {
+//   if (i.objectRelation) {
+//     object[i.objectRelation.objectId] = [];
+//     for (let j of commonObj) {
+//       if (i.objectRelation.objectId === j.id) {
+//         object[i.objectRelation.objectId].push({[i.id] : i.permissions})
+//       }
+//     }
+//   }
+// }
+//
+// console.log(object)
+//
+//
+// let obj3 = fields.reduce((acc, item) => {
+//     if (item.objectRelation) {
+//         let index = item.objectRelation.objectId;
+//         if (acc[index]) {
+//             return {...acc, [index]: [...acc[index], {[item.id] : item.permissions}]}
+//         } else {
+//             return {...acc, [index]: [{[item.id] : item.permissions}]}
+//         }
+//     } else {
+//         return acc;
+//     }
+// }, {})
+//
+// console.log(obj3)
 
 // let obj2 = fields.filter(r => r.objectRelation ? r : null).map(i => {
 //     let object1 = objects.find(j => j.id === i.objectRelation.objectId);
