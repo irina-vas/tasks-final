@@ -1,117 +1,62 @@
 'use strict';
 
 const url = 'https://trevadim.github.io/vue/data/data.json';
-let data = fetch(url)
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        console.log(data)
-        addInfo(data)
-    })
+
+function fetchingData() {
+    let data = fetch(url)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data)
+            addInfo(data)
+        })
+}
+
 
 let root = document.createElement('div');
 document.body.prepend(root);
 root.classList.add('main_block');
+let btn = document.createElement('button');
+btn.textContent='GET INFO';
+root.after(btn);
+btn.addEventListener('click', () => {
+    fetchingData()
+    btn.classList.add('hidden');
+})
 
-
-
-let layout = `
-    <div class="planet_card">
-        <h2 class="jupiter"></h2>
-            <figure>
-                <img src="">
-            </figure>
-            <div class="title">и</div>
-            <div class="info"></div>
-    </div>
-
-
-    <div class="planet_card">
-        <h2 class="mars"></h2>
-        <figure>
-            <img src="">
-        </figure>
-        <div class="title">и</div>
-        <div class="info"></div>
-    </div>
-
-    <div class="planet_card">
-        <h2 class="mercury"></h2>
-        <figure>
-            <img src="">
-        </figure>
-        <div class="title">и</div>
-        <div class="info"></div>
-    </div>
-
-    <div class="planet_card">
-        <h2 class="saturn"></h2>
-            <figure>
-                <img src="">
-            </figure>
-            <div class="title">и</div>
-            <div class="info"></div>
-    </div>
-
-    <div class="planet_card">
-    <h2 class="uran"></h2>
-        <figure>
-            <img src="">
-        </figure>
-        <div class="title">и</div>
-        <div class="info"></div>
-    </div>
-
-    <div class="planet_card">
-    <h2 class="venus"></h2>
-        <figure>
-            <img src="">
-        </figure>
-        <div class="title">и</div>
-        <div class="info"></div>
-    </div>
-
-
-<button>CLICK!</button>
-`;
-
-
-root.insertAdjacentHTML('afterbegin', layout);
 
 
 
 function addInfo(data) {
     let dataObject = JSON.parse(JSON.stringify(data))
     let planetsData = dataObject.planets;
-    console.log(planetsData)
-    console.log(dataObject)
+    console.log(planetsData);
+    let planetsArr = [];
 
 
-    let titles = document.getElementsByClassName('title');
-    console.log(titles)
-
-    let arrTitle = []
-    for (let i of titles) {
-
-        let arrPlanets = Object.values(planetsData);
-        console.log(arrPlanets)
-        i.innerHTML = arrPlanets[0].title;
+    for (let i in planetsData) {
+        planetsArr.push(planetsData[i])
     }
 
 
+    let planets = planetsArr.map(i => {
+        return `
 
-    console.log(arrTitle);
-    for (let title in planetsData) {
-        arrTitle.innerHTML = planetsData[title].title;
+      <div class="card">
+        <h2 class="title">${i.title}</h2>
+        <figure>
+            <img src=${i.url}>
+        </figure>
+        <div class="info">${i.info[0]}</div>
+      </div>
 
-    }
+    `
+    })
 
-    let arrPlanets = Object.values(planetsData);
-    console.log(arrPlanets)
+    root.innerHTML = planets;
+
 }
-
-// }
 
 
 
