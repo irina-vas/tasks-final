@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5ef1190-6ac1-412a-8919-03d45879541b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/clocks.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index5.html" beforeDir="false" afterPath="$PROJECT_DIR$/index5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script4.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/script5.js" beforeDir="false" afterPath="$PROJECT_DIR$/script5.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,10 +33,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/script4.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/index.html" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="20JJnHW1ya0n5kaVchW0sEA5ecq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -65,7 +65,7 @@
       <updated>1635756921453</updated>
       <workItem from="1635756923089" duration="13744000" />
       <workItem from="1635955938317" duration="4635000" />
-      <workItem from="1636011680045" duration="1940000" />
+      <workItem from="1636011680045" duration="5383000" />
     </task>
     <servers />
   </component>
