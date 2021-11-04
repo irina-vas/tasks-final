@@ -1,16 +1,32 @@
 'use strict';
-let hoursBlock = document.querySelector('.hours');
-let minuetsBlock = document.querySelector('.minuets');
-let secondsBlock = document.querySelector('.seconds');
-let startBtn = document.querySelector('.start');
-let stopBtn = document.querySelector('.stop');
+// let hoursBlock = document.querySelector('.hours');
+// let minuetsBlock = document.querySelector('.minuets');
+// let secondsBlock = document.querySelector('.seconds');
+// let startBtn = document.querySelector('.start');
+// let stopBtn = document.querySelector('.stop');
+
+let clocks = document.createElement('h2');
+document.body.prepend(clocks);
+let hoursBlock = document.createElement('span');
+clocks.prepend(hoursBlock);
+let dotsH = document.createElement('span');
+hoursBlock.after(dotsH);
+let minuetsBlock = document.createElement('span');
+dotsH.after(minuetsBlock);
+dotsH.textContent = ':';
+let dotsM = document.createElement('span');
+minuetsBlock.after(dotsM);
+dotsM.textContent = ':';
+let secondsBlock = document.createElement('span');
+dotsM.after(secondsBlock)
+let startBtn = document.createElement('button');
+startBtn.textContent = 'START'
+secondsBlock.after(startBtn);
+let stopBtn = document.createElement('button');
+startBtn.after(stopBtn);
+stopBtn.textContent = 'STOP'
 
 
-// function addZero(item) {
-//     if (item < 10) {
-//         return '0' + item
-//     }
-// }
 
 
 function setTime() {
@@ -46,5 +62,5 @@ function stop() {
 let timerId;
 
 startBtn.addEventListener('click', start);
-stopBtn.addEventListener('click', stop());
+stopBtn.addEventListener('click', stop);
 

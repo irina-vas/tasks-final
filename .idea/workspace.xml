@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5ef1190-6ac1-412a-8919-03d45879541b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/promises.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/async.html" beforeDir="false" afterPath="$PROJECT_DIR$/async.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/async.js" beforeDir="false" afterPath="$PROJECT_DIR$/async.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/promises.html" beforeDir="false" afterPath="$PROJECT_DIR$/promises.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/promises.js" beforeDir="false" afterPath="$PROJECT_DIR$/promises.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index5.html" beforeDir="false" afterPath="$PROJECT_DIR$/index5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script5.js" beforeDir="false" afterPath="$PROJECT_DIR$/script5.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +65,7 @@
       <updated>1635756921453</updated>
       <workItem from="1635756923089" duration="13744000" />
       <workItem from="1635955938317" duration="4635000" />
-      <workItem from="1636011680045" duration="314000" />
+      <workItem from="1636011680045" duration="1940000" />
     </task>
     <servers />
   </component>
