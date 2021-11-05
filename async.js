@@ -1,7 +1,9 @@
 'use strict';
 
 let url = 'https://jsonplaceholder.typicode.com/users';
-let root = document.querySelector('.root');
+let root = document.createElement('div');
+document.body.prepend(root);
+root.classList.add('root');
 let btn = document.createElement('button');
 document.querySelector('.root').after(btn);
 btn.textContent='LOAD USERS';
