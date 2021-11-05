@@ -9,29 +9,29 @@
 
 
 // let calculator = {
-//     a : '',
-//     b: '',
+//     x : '',
+//     y: '',
 //     read() {
 //         let x = +prompt('write some number for "x"');
 //         let y = +prompt('write some number for "y"');
-//         this.a = x;
-//         this.b = y;
+//         this.x = x;
+//         this.y = y;
 //         return this;
 //     },
 //     sum() {
-//         let sum = this.a + this.b;
+//         let sum = this.x + this.y;
 //         return sum;
 //     },
 //     multi() {
-//         let mult = this.a * this.b;
+//         let mult = this.x * this.y;
 //         return mult;
 //     },
 //     diff() {
-//         let diff = this.a / this.b;
+//         let diff = this.x - this.y;
 //         return diff;
 //     },
 //     div() {
-//         let div = this.a - this.b;
+//         let div = this.x / this.y;
 //         return div;
 //     }
 //
@@ -45,15 +45,14 @@
 // появляется окно с сообщением, записанным в свойстве объекта message.
 
 // let coffeeMachine = {
-//     ['Your coffee is ready!'] : '',
+//     ['message'] : 'your coffee is ready',
 //     start() {
 //         setTimeout(() => {
-//             coffeeMachine['Your coffee is ready!'] = 'take your latte';
-//             console.log(coffeeMachine['Your coffee is ready!'])
+//             console.log(coffeeMachine['message'])
 //         }, 3000)
 //     }
 // }
-//
+
 // coffeeMachine.start();
 
 // Создайте объект counter с методами увеличения, уменьшения значения
@@ -89,24 +88,32 @@
 // let object = {
 //     x: '',
 //     y: '',
-//     getRead: function() {
-//        calculator.read.call(this)
+//     getSum: function(x, y) {
+//         this.x = x;
+//         this.y = y;
+//         return this.x + '+' +this.y + '=' + calculator.sum.call(this, this.x, this.y)
 //     },
-//     getSum: function() {
-//         alert(calculator.sum.call(this))
+//     getDiff: function(x, y) {
+//         this.x = x;
+//         this.y = y;
+//         return this.x + '-' +this.y + '=' + calculator.multy.call(this, this.x, this.y)
 //     },
-//     getDiff: function() {
-//         alert(calculator.diff.call(this))
+//     getMulti: function(x, y) {
+//         this.x = x;
+//         this.y = y;
+//         return this.x + '*' +this.y + '=' + calculator.diff.call(this, this.x, this.y)
 //     },
-//     getMulti: function() {
-//         alert(calculator.multi.call(this))
-//     },
-//     getDiv: function() {
-//         alert(calculator.div.call(this))
+//     getDiv: function(x, y) {
+//         this.x = x;
+//         this.y = y;
+//         return this.x + '/' +this.y + '=' + calculator.div.call(this, this.x, this.y)
 //     }
 // }
-// object.getRead();
-// object.getSum();
+//
+// alert(object.getSum(1, 1));//2
+// alert(object.getDiv(1, 0));//1
+//просмотри условие задачи, там не так делается вызов, а от этого должно быть немного другое решение
+
 
 
 // 5. Есть следующий код:
