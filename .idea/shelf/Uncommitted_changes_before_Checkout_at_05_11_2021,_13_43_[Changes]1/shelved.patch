@@ -1,0 +1,160 @@
+Index: script5.js
+===================================================================
+diff --git a/script5.js b/script5.js
+deleted file mode 100644
+--- a/script5.js	
++++ /dev/null	
+@@ -1,105 +0,0 @@
+-'use strict';
+-
+-let clocks = document.createElement('div');
+-document.body.prepend(clocks);
+-clocks. classList.add('clocks');
+-let hoursBlock = document.createElement('span');
+-clocks.prepend(hoursBlock);
+-let dotsH = document.createElement('span');
+-hoursBlock.after(dotsH);
+-let minuetsBlock = document.createElement('span');
+-dotsH.after(minuetsBlock);
+-dotsH.textContent = ':';
+-let dotsM = document.createElement('span');
+-minuetsBlock.after(dotsM);
+-dotsM.textContent = ':';
+-let secondsBlock = document.createElement('span');
+-dotsM.after(secondsBlock)
+-let startBtn = document.createElement('button');
+-startBtn.textContent = 'START'
+-secondsBlock.after(startBtn);
+-let stopBtn = document.createElement('button');
+-startBtn.after(stopBtn);
+-stopBtn.textContent = 'STOP'
+-
+-
+-
+-
+-function setTime() {
+-    let date = new Date();
+-    let hours = date.getHours();
+-    if (hours < 10) {
+-        hours = '0' + hours
+-    }
+-    let minuets = date.getMinutes();
+-    if (minuets < 10) {
+-        minuets = '0' + hours
+-    }
+-    let seconds = date.getSeconds();
+-    if (seconds < 10) {
+-        seconds = '0' + hours
+-    }
+-    hoursBlock.innerHTML = hours;
+-    minuetsBlock.innerHTML = minuets;
+-    secondsBlock.innerHTML = seconds;
+-}
+-
+-let timer;
+-function start() {
+-    timer = setInterval(setTime, 1000);
+-    setTime();
+-}
+-
+-function stop() {
+-    clearInterval(timer);
+-    timer = null;
+-}
+-
+-startBtn.addEventListener('click', start);
+-stopBtn.addEventListener('click', stop);
+-
+-//second task
+-
+-let headline = document.createElement('h2');
+-clocks.after(headline);
+-headline.textContent = 'EVENTS';
+-let containerX = document.createElement('p');
+-containerX.classList.add('containerX')
+-headline.after(containerX);
+-containerX.textContent = 'X: ';
+-let screenX = document.createElement('span');
+-containerX.append(screenX);
+-
+-let containerY = document.createElement('p');
+-containerX.after(containerY);
+-containerY.textContent = 'Y: ';
+-let screenY = document.createElement('span');
+-containerY.append(screenY);
+-
+-let block = document.createElement('div');
+-containerY.after(block);
+-block.classList.add('block');
+-let blockDesc = document.createElement('p');
+-block.after(blockDesc);
+-blockDesc.textContent = 'Координаты внутри блока ';
+-let blockX = document.createElement('span');
+-blockDesc.append(blockX);
+-blockX.textContent = 'X: ';
+-let blockY = document.createElement('span');
+-blockDesc.append(blockY);
+-blockY.textContent = 'Y: '
+-
+-
+-
+-
+-block.addEventListener('mousemove', (e) => {
+-    blockX.innerHTML = e.offsetX;
+-    blockY.innerHTML = e.offsetY;
+-
+-})
+-
+-window.addEventListener('mousemove', ((e) => {
+-    screenX.innerHTML = e.offsetX;
+-    screenY.innerHTML = e.offsetY;
+-}))
+-
+Index: clocks.css
+===================================================================
+diff --git a/clocks.css b/clocks.css
+deleted file mode 100644
+--- a/clocks.css	
++++ /dev/null	
+@@ -1,6 +0,0 @@
+-.block {
+-    margin: 0 auto;
+-    width: 400px;
+-    height: 400px;
+-    background-color: grey;
+-}
+\ No newline at end of file
+Index: index5.html
+===================================================================
+diff --git a/index5.html b/index5.html
+deleted file mode 100644
+--- a/index5.html	
++++ /dev/null	
+@@ -1,26 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>Document</title>
+-    <link rel="stylesheet" href="clocks.css">
+-</head>
+-<body>
+-<!--    <h2 class="time">-->
+-<!--        <span class="hours"> </span><span>:</span>-->
+-<!--        <span class="minuets"> </span><span>:</span>-->
+-<!--        <span class="seconds"></span>-->
+-<!--        <button class="start">START</button>-->
+-<!--        <button class="stop" onclick="stop()">STOP</button>-->
+-<!--    </h2>-->
+-<!--    <h2>События</h2>-->
+-<!--    <p>X: <span class="x"></span></p>-->
+-<!--    <p>Y: <span class="y"></span></p>-->
+-<!--    <div class="block" style="width: 400px; height: 400px; background-color: grey"></div>-->
+-<!--    <p class="block_desc">Координаты внутри блока: х <span class="x_coordinate"></span>0, у <span class="y_coordinate"></span>0</p>-->
+-    <script src="script5.js"></script>
+-<!--    <script src="events.js"></script>-->
+-</body>
+-</html>
+\ No newline at end of file
