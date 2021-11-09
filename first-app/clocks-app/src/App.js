@@ -8,8 +8,8 @@ function App() {
     <div className="App">
 
 
-      <FunctionalComponent />
-      {/*  <ClassComponent />*/}
+      {/*<FunctionalComponent />*/}
+        <ClassComponent />
     </div>
   );
 }
