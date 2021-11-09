@@ -22,7 +22,6 @@ export class ClassComponent extends Component {
         }
     }
 
-
     start() {
         this.timerID = setInterval(() => {
             this.setState({
@@ -38,10 +37,6 @@ export class ClassComponent extends Component {
         clearInterval(this.timerID);
         this.setState(({timerOn: false}))
     }
-
-    // componentWillUnmount() {
-    //     clearInterval(this.timerID);
-    // }
 
     render() {
         return (
