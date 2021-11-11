@@ -8,15 +8,18 @@ function App() {
     const [todo, setTodo] = useState([
         {
             id: 1,
-            title: 'first'
+            title: 'first',
+            completed: 'added'
         },
         {
             id: 2,
-            title: 'second'
+            title: 'second',
+            completed: 'added'
         },
         {
             id: 3,
-            title: 'third'
+            title: 'third',
+            completed: 'added'
         },
     ]);
     const [addTodo, setAddTodo] = useState(false);
