@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import Button from './Button';
 import AddTodo from './AddTodo';
 import Context from './Context/Context';
@@ -8,16 +8,29 @@ function FormTodo() {
     const {addTodo} = useContext(Context);
     const {todo} = useContext(Context);
     const {setTodo} = useContext(Context);
+    const [selected, setSelected] = useState('added');
 
     const deleteTodo = (id) => {
         let newTodo = [...todo].filter(item => item.id != id);
         setTodo(newTodo)
     }
+    console.log(todo)
+    const handleSelectChange = (e,id) => {
+        console.log(id)
+       // setSelected()
+        //let newTodo = [ ...[...todo].filter(item => item.id !== id), { ...todo[id-1], completed: e.target.value}];
+        let newTodo = todo.map((item) => {
+            if (item.id === id){
+                return {id: item.id, title: item.title, completed: e.target.value}
+            }
+            return item
+        })
+        // let newTodo = [...todo].filter(item => item.id === id ? item.completed = selected : [...todo]);
+       setTodo(newTodo)
 
-    const handleSelectChange = () => {
 
     }
-
+    console.log(selected)
 
     return (
         <div className="wrapper">
@@ -29,9 +42,10 @@ function FormTodo() {
                             <div className="todo_item">{item.title}</div>
                             <div>
                                 <select className="select_todo"
-                                    value={value}
-                                    onChange={handleSelectChange}
+                                    value={selected}
+                                    onChange={(e)=>handleSelectChange(e, item.id)}
                                 >
+                                    <option>select</option>
                                     <option>in progress</option>
                                     <option>done</option>
                                 </select>
